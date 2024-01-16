@@ -7,7 +7,13 @@
         public int CourseId { get; set; }
         public Course Course { get; set; } = null!;
         public int InstructorId { get; set; }
-        public ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
+        public Instructor Instructor { get; set; } = null!;
+        public ICollection<Student> Students { get; set; } = new List<Student>();
+
+        public override string ToString()
+        { 
+            return $"[{Id}]   |   SectionName: {SectionName}   |   CourseId: {CourseId}   |   InstructorId: {InstructorId}  |  {Instructor}";
+        }
 
     }
 }

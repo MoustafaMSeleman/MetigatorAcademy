@@ -5,5 +5,9 @@
         public int StudentId { get; set; }
         public int SectionId { get; set; }
 
+        public override string ToString()
+        {
+            return $"StudentId: [{StudentId}]  |  SectionId: [{SectionId}]";
+        }
     }
 }

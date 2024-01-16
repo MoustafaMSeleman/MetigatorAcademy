@@ -134,3 +134,4 @@ E:\DotNet\EntityFramework\MyWork\EFCore\EFCore-Metigator-ep10\obj\Debug\net8.0\r
 E:\DotNet\EntityFramework\MyWork\EFCore\EFCore-Metigator-ep10\obj\Debug\net8.0\EFCore-Metigator-ep10.pdb
 E:\DotNet\EntityFramework\MyWork\EFCore\EFCore-Metigator-ep10\obj\Debug\net8.0\EFCore-Metigator-ep10.genruntimeconfig.cache
 E:\DotNet\EntityFramework\MyWork\EFCore\EFCore-Metigator-ep10\obj\Debug\net8.0\ref\EFCore-Metigator-ep10.dll
+E:\DotNet\EntityFramework\MyWork\EFCore\EFCore-Metigator-ep10\obj\Debug\net8.0\EFCore-Metigator-ep10.sourcelink.json

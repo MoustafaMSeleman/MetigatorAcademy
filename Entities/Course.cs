@@ -6,6 +6,12 @@
         public string CourseName { get; set; } = null!;
         public decimal Price { get; set; }
         public List<Section> Sections { get;} = [];
+
+        public override string ToString()
+        {
+            return $"[{Id}]  |  {CourseName}  |  {Price}";
+        }
     }
-    
 }
+    
+
