@@ -23,6 +23,10 @@ namespace EFCore_Metigator_ep10.Configuration
                   l => l.HasKey("SectionId","StudentId")
                 );
             //convention will automatically create fks
+
+            builder.HasMany(e => e.Schedules)
+                .WithMany(e => e.Sections)
+                .UsingEntity<SectionSchedule>();
         }
     }
 }

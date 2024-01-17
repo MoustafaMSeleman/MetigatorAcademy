@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EFCore-Metigator-ep10")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03df6abbba86bd69ac4b51439a367d0ef190cbb3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2952bb257affed9acfea76e5492347b0d8cc8a0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("EFCore-Metigator-ep10")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EFCore-Metigator-ep10")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

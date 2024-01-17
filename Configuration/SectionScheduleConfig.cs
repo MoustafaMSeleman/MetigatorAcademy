@@ -8,7 +8,10 @@ namespace EFCore_Metigator_ep10.Configuration
     {
         public void Configure(EntityTypeBuilder<SectionSchedule> builder) 
         {
-            builder.HasKey(e => new { e.SectionId, e.ScheduleId, e.StartTime, e.EndTime });
+            builder.HasKey(e => new { e.SectionId, e.ScheduleId, e.StartTime, e.EndTime })
+                ;
+           
+            
         }
     }
 }

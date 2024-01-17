@@ -9,7 +9,7 @@
         public int InstructorId { get; set; }
         public Instructor Instructor { get; set; } = null!;
         public ICollection<Student> Students { get; set; } = new List<Student>();
-
+        public ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
         public override string ToString()
         { 
             return $"[{Id}]   |   SectionName: {SectionName}   |   CourseId: {CourseId}   |   InstructorId: {InstructorId}  |  {Instructor}";

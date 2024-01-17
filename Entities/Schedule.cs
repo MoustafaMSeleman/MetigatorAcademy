@@ -11,7 +11,7 @@
         public bool THU { get; set; }
         public bool FRI { get; set; }
         public bool SAT { get; set; }
-
+        public ICollection<Section> Sections { get; set; } = new List<Section>();
         public override string ToString()
         {
             return $"[{Id}]   |   ScheduleTitle: {Title}   |   SUN: {SUN}   |   MON: {MON}|   TUS: {TUE}|   WED: {WED}|   THU: {THU}|   FRI: {FRI}|   SAT: {SAT}                ";
