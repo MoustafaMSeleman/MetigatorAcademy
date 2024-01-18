@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public string CourseName { get; set; } = null!;
         public decimal Price { get; set; }
-        public List<Section> Sections { get;} = [];
+        public ICollection<Section> Sections { get;} = new List<Section>();
 
         public override string ToString()
         {

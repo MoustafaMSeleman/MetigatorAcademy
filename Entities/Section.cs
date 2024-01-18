@@ -8,12 +8,19 @@
         public Course Course { get; set; } = null!;
         public int InstructorId { get; set; }
         public Instructor Instructor { get; set; } = null!;
+        public int ScheduleId { get; set; }
+        public Schedule Schedule { get; set; } = null!;
+
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+
         public ICollection<Student> Students { get; set; } = new List<Student>();
-        public ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
+       
         public override string ToString()
         { 
             return $"[{Id}]   |   SectionName: {SectionName}   |   CourseId: {CourseId}   |   InstructorId: {InstructorId}  |  {Instructor}";
         }
 
+        
     }
 }

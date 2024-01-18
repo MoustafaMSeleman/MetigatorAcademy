@@ -24,9 +24,10 @@ namespace EFCore_Metigator_ep10.Configuration
                 );
             //convention will automatically create fks
 
-            builder.HasMany(e => e.Schedules)
+            builder.HasOne(e => e.Schedule)
                 .WithMany(e => e.Sections)
-                .UsingEntity<SectionSchedule>();
+                .HasForeignKey(e => e.ScheduleId);
+            //builder.Property(e => e.ScheduleId).IsRequired();
         }
     }
 }

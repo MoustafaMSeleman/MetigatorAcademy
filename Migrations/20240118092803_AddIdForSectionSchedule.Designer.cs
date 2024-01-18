@@ -4,6 +4,7 @@ using EFCore_Metigator_ep10.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCore_Metigator_ep10.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240118092803_AddIdForSectionSchedule")]
+    partial class AddIdForSectionSchedule
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,16 +68,12 @@ namespace EFCore_Metigator_ep10.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("FName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Location")
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -154,21 +153,12 @@ namespace EFCore_Metigator_ep10.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("InstructorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ScheduleId")
                         .HasColumnType("int");
 
                     b.Property<string>("SectionName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -176,9 +166,36 @@ namespace EFCore_Metigator_ep10.Migrations
 
                     b.HasIndex("InstructorId");
 
+                    b.ToTable("Sections");
+                });
+
+            modelBuilder.Entity("EFCore_Metigator_ep10.Entities.SectionSchedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ScheduleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SectionId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
                     b.HasIndex("ScheduleId");
 
-                    b.ToTable("Sections");
+                    b.HasIndex("SectionId");
+
+                    b.ToTable("SectionSchedules");
                 });
 
             modelBuilder.Entity("EFCore_Metigator_ep10.Entities.Student", b =>
@@ -236,17 +253,24 @@ namespace EFCore_Metigator_ep10.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EFCore_Metigator_ep10.Entities.Schedule", "Schedule")
-                        .WithMany("Sections")
+                    b.Navigation("Course");
+
+                    b.Navigation("Instructor");
+                });
+
+            modelBuilder.Entity("EFCore_Metigator_ep10.Entities.SectionSchedule", b =>
+                {
+                    b.HasOne("EFCore_Metigator_ep10.Entities.Schedule", null)
+                        .WithMany()
                         .HasForeignKey("ScheduleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Course");
-
-                    b.Navigation("Instructor");
-
-                    b.Navigation("Schedule");
+                    b.HasOne("EFCore_Metigator_ep10.Entities.Section", null)
+                        .WithMany()
+                        .HasForeignKey("SectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EFCore_Metigator_ep10.Entities.Course", b =>
@@ -262,11 +286,6 @@ namespace EFCore_Metigator_ep10.Migrations
             modelBuilder.Entity("EFCore_Metigator_ep10.Entities.Office", b =>
                 {
                     b.Navigation("Instructor");
-                });
-
-            modelBuilder.Entity("EFCore_Metigator_ep10.Entities.Schedule", b =>
-                {
-                    b.Navigation("Sections");
                 });
 #pragma warning restore 612, 618
         }

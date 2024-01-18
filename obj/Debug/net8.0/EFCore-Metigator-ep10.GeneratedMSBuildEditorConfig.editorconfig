@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EFCore_Metigator_ep10
-build_property.ProjectDir = E:\DotNet\EntityFramework\MyWork\EFCore\EFCore-Metigator-ep10\
+build_property.ProjectDir = D:\DotNet Core\Entity framework\MetigatorAcademy\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

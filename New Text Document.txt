@@ -1,0 +1,12 @@
+# Modify Many to many relation Section-Schedule
+-----------------------------------------------
+
+till now after '20240118092803_AddIdForSectionSchedule',
+each section is related with sectionschedule with one to many relation
+and the time of section is stored in sectionschedule
+but each section should have only one time
+
+we will drop the SectionSchedule Table
+add new one to many relation between Section and Schedule
+ 'Each Schedule has many sections, Each Section belongs to one schedule'.
+
